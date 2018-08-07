@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainMenu">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="291dp"
+        android:layout_height="58dp"
+        android:text="@string/play"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="53dp" />
 </android.support.constraint.ConstraintLayout>
