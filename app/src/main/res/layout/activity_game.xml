@@ -26,8 +26,8 @@
 
             <ImageButton
                 android:id="@+id/imageButtonA1"
-                android:layout_width="10dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:adjustViewBounds="false"
                 android:background="@drawable/hell"
@@ -36,7 +36,7 @@
             <ImageButton
                 android:id="@+id/imageButtonA2"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/dunkel" />
 
