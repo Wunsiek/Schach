@@ -4,15 +4,49 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
+import android.view.View;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class Game extends AppCompatActivity {
 
-    ImageButton[][] game = new ImageButton[8][8];
+    public static ImageButton[][] game = new ImageButton[8][8];
+    public static Spielfigur[][] figuren = new Spielfigur[8][8];
+    
+    Spielfigur st1 = new Spielfigur("st1", true, 't', 0, 0);
+    Spielfigur ss1 = new Spielfigur("ss1", true, 's', 1, 0);
+    Spielfigur sl1 = new Spielfigur("sl1", true, 'l', 2, 0);
+    Spielfigur sd1 = new Spielfigur("sd1", true, 'd', 3, 0);
+    Spielfigur sk1 = new Spielfigur("sk1", true, 'k', 4, 0);
+    Spielfigur sl2 = new Spielfigur("sl2", true, 'l', 5, 0);
+    Spielfigur ss2 = new Spielfigur("ss2", true, 's', 6, 0);
+    Spielfigur st2 = new Spielfigur("st2", true, 't', 7, 0);
+    Spielfigur sb1 = new Spielfigur("sb1", true, 'b', 0, 1);
+    Spielfigur sb2 = new Spielfigur("sb2", true, 'b', 1, 1);
+    Spielfigur sb3 = new Spielfigur("sb3", true, 'b', 2, 1);
+    Spielfigur sb4 = new Spielfigur("sb4", true, 'b', 3, 1);
+    Spielfigur sb5 = new Spielfigur("sb5", true, 'b', 4, 1);
+    Spielfigur sb6 = new Spielfigur("sb6", true, 'b', 5, 1);
+    Spielfigur sb7 = new Spielfigur("sb7", true, 'b', 6, 1);
+    Spielfigur sb8 = new Spielfigur("sb8", true, 'b', 7, 1);
+    Spielfigur wt1 = new Spielfigur("wt1", true, 't', 0, 7);
+    Spielfigur ws1 = new Spielfigur("ws1", true, 's', 1, 7);
+    Spielfigur wl1 = new Spielfigur("wl1", true, 'l', 2, 7);
+    Spielfigur wd1 = new Spielfigur("wd1", true, 'd', 3, 7);
+    Spielfigur wk1 = new Spielfigur("wk1", true, 'k', 4, 7);
+    Spielfigur wl2 = new Spielfigur("wl2", true, 'l', 5, 7);
+    Spielfigur ws2 = new Spielfigur("ws2", true, 's', 6, 7);
+    Spielfigur wt2 = new Spielfigur("wt2", true, 't', 7, 7);
+    Spielfigur wb1 = new Spielfigur("wb1", true, 'b', 0, 6);
+    Spielfigur wb2 = new Spielfigur("wb2", true, 'b', 1, 6);
+    Spielfigur wb3 = new Spielfigur("wb3", true, 'b', 2, 6);
+    Spielfigur wb4 = new Spielfigur("wb4", true, 'b', 3, 6);
+    Spielfigur wb5 = new Spielfigur("wb5", true, 'b', 4, 6);
+    Spielfigur wb6 = new Spielfigur("wb6", true, 'b', 5, 6);
+    Spielfigur wb7 = new Spielfigur("wb7", true, 'b', 6, 6);
+    Spielfigur wb8 = new Spielfigur("wb8", true, 'b', 7, 6);   
 
     @BindView(R.id.btn00)
     ImageButton btn00;
@@ -227,6 +261,39 @@ public class Game extends AppCompatActivity {
                 game[i][j].getLayoutParams().height = (screenWidth - 32)/8;
             }
         }
-
     }
+
+
+    public void onFieldClick(View view) {
+        ImageButton btn = (ImageButton) view;
+        int y = checkChar(btn.getContentDescription().charAt(0));
+        int x = checkChar(btn.getContentDescription().charAt(1));
+        if(figuren[y][x] != null){
+            figuren[y][x].highlightFields();
+        }
+    }
+
+    public int checkChar(char number){
+        switch (number){
+            case '0':
+                return 0;
+            case '1':
+                return 1;
+            case '2':
+                return 2;
+            case '3':
+                return 3;
+            case '4':
+                return 4;
+            case '5':
+                return 5;
+            case '6':
+                return 6;
+            case '7':
+                return 7;
+            default:
+                return 8;
+        }
+    }
+
 }
