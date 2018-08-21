@@ -308,7 +308,7 @@ public class Game extends AppCompatActivity {
                 figuren[y][x].highlightFields();
                 selectedFigure = figuren[y][x];
             }else{
-
+                return;
             }
         }else{
             if (figuren[y][x] != null) {
