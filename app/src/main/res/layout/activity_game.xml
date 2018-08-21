@@ -490,8 +490,7 @@
                 android:contentDescription="43"
                 android:onClick="onFieldClick"
                 android:padding="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/lfr_schwarz" />
+                android:scaleType="fitCenter" />
 
             <ImageButton
                 android:id="@+id/btn44"
@@ -527,8 +526,7 @@
                 android:contentDescription="46"
                 android:onClick="onFieldClick"
                 android:padding="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/lfr_schwarz" />
+                android:scaleType="fitCenter" />
 
             <ImageButton
                 android:id="@+id/btn47"

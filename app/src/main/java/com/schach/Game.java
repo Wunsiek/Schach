@@ -1,5 +1,6 @@
 package com.schach;
 
+import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,8 @@ import butterknife.ButterKnife;
 public class Game extends AppCompatActivity {
 
     public static ImageButton[][] game = new ImageButton[8][8];
-    public static Spielfigur[][] figuren = new Spielfigur[8][8];
+    public static Spielfigur[][] figuren = new Spielfigur[8][8]; //figuren[y][x] immer so einsetzen
+    public static Spielfigur selectedFigure = null;
     
     Spielfigur st1 = new Spielfigur("st1", true, 't', 0, 0);
     Spielfigur ss1 = new Spielfigur("ss1", true, 's', 1, 0);
@@ -255,6 +257,39 @@ public class Game extends AppCompatActivity {
         game[7][6] = btn76;
         game[7][7] = btn77;
 
+        figuren[0][0] = st1;
+        figuren[0][1] = ss1;
+        figuren[0][2] = sl1;
+        figuren[0][3] = sd1;
+        figuren[0][4] = sk1;
+        figuren[0][5] = sl2;
+        figuren[0][6] = ss2;
+        figuren[0][7] = st2;
+        figuren[1][0] = sb1;
+        figuren[1][1] = sb2;
+        figuren[1][2] = sb3;
+        figuren[1][3] = sb4;
+        figuren[1][4] = sb5;
+        figuren[1][5] = sb6;
+        figuren[1][6] = sb7;
+        figuren[1][7] = sb8;
+        figuren[7][0] = wt1;
+        figuren[7][1] = ws1;
+        figuren[7][2] = wl1;
+        figuren[7][3] = wd1;
+        figuren[7][4] = wk1;
+        figuren[7][5] = wl2;
+        figuren[7][6] = ws2;
+        figuren[7][7] = wt2;
+        figuren[6][0] = wb1;
+        figuren[6][1] = wb2;
+        figuren[6][2] = wb3;
+        figuren[6][3] = wb4;
+        figuren[6][4] = wb5;
+        figuren[6][5] = wb6;
+        figuren[6][6] = wb7;
+        figuren[6][7] = wb8;
+
         for(int i = 0; i <= 7; i++){
             for(int j = 0; j <= 7; j++){
                 game[i][j].getLayoutParams().width = (screenWidth - 32)/8;
@@ -268,8 +303,28 @@ public class Game extends AppCompatActivity {
         ImageButton btn = (ImageButton) view;
         int y = checkChar(btn.getContentDescription().charAt(0));
         int x = checkChar(btn.getContentDescription().charAt(1));
-        if(figuren[y][x] != null){
-            figuren[y][x].highlightFields();
+        if(selectedFigure == null) {
+            if (figuren[y][x] != null) {
+                figuren[y][x].highlightFields();
+                selectedFigure = figuren[y][x];
+            }else{
+
+            }
+        }else{
+            if (figuren[y][x] != null) {
+                figuren[y][x].highlightFields();
+                selectedFigure = figuren[y][x];
+            }else{
+
+            }
+        }
+    }
+
+    public void setUnclicked(){
+        for(int i = 0; i <= 7; i++){
+            for(int j = 0; j <= 7; j++){
+                game[i][j].setBackgroundResource(0);
+            }
         }
     }
 
