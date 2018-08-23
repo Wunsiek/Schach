@@ -10,7 +10,7 @@
         android:id="@+id/table"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/schachbrett_braun1"
+        android:background="@drawable/schachbrett_braun"
         android:padding="19.5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
