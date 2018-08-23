@@ -59,7 +59,8 @@ public class Spielfigur {
     }
 
     public void highlightFields() {
-        Game.game[yPos][xPos].setBackgroundColor(Color.parseColor("#A3000DFF")); //TODO:Farbe austesten (hier blau transparent)
+        Game.setUnclicked();
+        Game.game[yPos][xPos].setBackgroundColor(Color.parseColor("#A3000DFF"));
         switch(this.art){
             case 'k':
                 highlightK();
@@ -105,27 +106,27 @@ public class Spielfigur {
 
     public void highlightBlackB(){
         if(Game.figuren[this.yPos+1][this.xPos] == null) {
-            Game.game[this.yPos + 1][this.xPos].setBackgroundColor(Color.parseColor("#B4FFF200"));//TODO:Farbe austesten (hier gelb transparent)
+            Game.game[this.yPos + 1][this.xPos].setBackgroundColor(Color.parseColor("#B4FFF200"));
             if(!this.moved && Game.figuren[this.yPos+2][this.xPos] == null){
-                Game.game[this.yPos + 2][this.xPos].setBackgroundColor(Color.parseColor("#B4FFF200"));//TODO:Farbe austesten (hier gelb transparent)
+                Game.game[this.yPos + 2][this.xPos].setBackgroundColor(Color.parseColor("#B4FFF200"));
             }
         }
         if(this.xPos <= 6 && this.xPos >= 1){
-            if(!Game.figuren[yPos+1][this.xPos-1].schwarz){
-                Game.game[yPos+1][this.xPos-1].setBackgroundColor(Color.parseColor("#7DFF0000"));//TODO:Farbe austesten (hier rot transparent)
+            if(Game.figuren[yPos+1][this.xPos-1] != null && !Game.figuren[yPos+1][this.xPos-1].schwarz){
+                Game.game[yPos+1][this.xPos-1].setBackgroundColor(Color.parseColor("#7DFF0000"));
             }
-            if(!Game.figuren[yPos+1][this.xPos+1].schwarz){
-                Game.game[yPos+1][this.xPos+1].setBackgroundColor(Color.parseColor("#7DFF0000"));//TODO:Farbe austesten (hier rot transparent)
+            if(Game.figuren[yPos+1][this.xPos+1] != null && !Game.figuren[yPos+1][this.xPos+1].schwarz){
+                Game.game[yPos+1][this.xPos+1].setBackgroundColor(Color.parseColor("#7DFF0000"));
             }
         }
         if(this.xPos == 0){
-            if(!Game.figuren[yPos+1][this.xPos+1].schwarz){
-                Game.game[yPos+1][this.xPos+1].setBackgroundColor(Color.parseColor("#7DFF0000"));//TODO:Farbe austesten (hier rot transparent)
+            if(Game.figuren[yPos+1][this.xPos+1] != null && !Game.figuren[yPos+1][this.xPos+1].schwarz){
+                Game.game[yPos+1][this.xPos+1].setBackgroundColor(Color.parseColor("#7DFF0000"));
             }
         }
         if(this.xPos == 7){
-            if(!Game.figuren[yPos+1][this.xPos-1].schwarz){
-                Game.game[yPos+1][this.xPos-1].setBackgroundColor(Color.parseColor("#7DFF0000"));//TODO:Farbe austesten (hier rot transparent)
+            if(Game.figuren[yPos+1][this.xPos-1] != null && !Game.figuren[yPos+1][this.xPos-1].schwarz){
+                Game.game[yPos+1][this.xPos-1].setBackgroundColor(Color.parseColor("#7DFF0000"));
             }
         }
         //TODO: En passant fehlt noch
@@ -133,27 +134,27 @@ public class Spielfigur {
 
     public void highlightWhiteB(){
         if(Game.figuren[this.yPos-1][this.xPos] == null) {
-            Game.game[this.yPos + 1][this.xPos].setBackgroundColor(Color.parseColor("#B4FFF200"));//TODO:Farbe austesten (hier gelb transparent)
-            if(!this.moved && Game.figuren[this.yPos+2][this.xPos] == null){
-                Game.game[this.yPos + 2][this.xPos].setBackgroundColor(Color.parseColor("#B4FFF200"));//TODO:Farbe austesten (hier gelb transparent)
+            Game.game[this.yPos - 1][this.xPos].setBackgroundColor(Color.parseColor("#B4FFF200"));
+            if(!this.moved && Game.figuren[this.yPos-2][this.xPos] == null){
+                Game.game[this.yPos - 2][this.xPos].setBackgroundColor(Color.parseColor("#B4FFF200"));
             }
         }
         if(this.xPos <= 6 && this.xPos >= 1){
-            if(Game.figuren[yPos-1][this.xPos-1].schwarz){
-                Game.game[yPos-1][this.xPos-1].setBackgroundColor(Color.parseColor("#7DFF0000"));//TODO:Farbe austesten (hier rot transparent)
+            if(Game.figuren[yPos-1][this.xPos-1] != null && Game.figuren[yPos-1][this.xPos-1].schwarz){
+                Game.game[yPos-1][this.xPos-1].setBackgroundColor(Color.parseColor("#7DFF0000"));
             }
-            if(Game.figuren[yPos-1][this.xPos+1].schwarz){
-                Game.game[yPos-1][this.xPos+1].setBackgroundColor(Color.parseColor("#7DFF0000"));//TODO:Farbe austesten (hier rot transparent)
+            if(Game.figuren[yPos-1][this.xPos+1] != null && Game.figuren[yPos-1][this.xPos+1].schwarz){
+                Game.game[yPos-1][this.xPos+1].setBackgroundColor(Color.parseColor("#7DFF0000"));
             }
         }
         if(this.xPos == 0){
-            if(Game.figuren[yPos-1][this.xPos+1].schwarz){
-                Game.game[yPos-1][this.xPos+1].setBackgroundColor(Color.parseColor("#7DFF0000"));//TODO:Farbe austesten (hier rot transparent)
+            if(Game.figuren[yPos-1][this.xPos+1] != null && Game.figuren[yPos-1][this.xPos+1].schwarz){
+                Game.game[yPos-1][this.xPos+1].setBackgroundColor(Color.parseColor("#7DFF0000"));
             }
         }
         if(this.xPos == 7){
-            if(Game.figuren[yPos-1][this.xPos-1].schwarz){
-                Game.game[yPos-1][this.xPos-1].setBackgroundColor(Color.parseColor("#7DFF0000"));//TODO:Farbe austesten (hier rot transparent)
+            if(Game.figuren[yPos-1][this.xPos-1] != null && Game.figuren[yPos-1][this.xPos-1].schwarz){
+                Game.game[yPos-1][this.xPos-1].setBackgroundColor(Color.parseColor("#7DFF0000"));
             }
         }
         //TODO: En passant fehlt noch
