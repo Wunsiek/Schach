@@ -10,7 +10,7 @@
         android:id="@+id/table"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/schachbrett_braun"
+        android:background="@drawable/schachbrett"
         android:padding="19.5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_rook" />
+                android:src="@drawable/schwarzer_turm" />
 
             <ImageButton
                 android:id="@+id/btn01"
@@ -45,7 +45,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_knight" />
+                android:src="@drawable/schwarzer_springer" />
 
             <ImageButton
                 android:id="@+id/btn02"
@@ -58,7 +58,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_bishop" />
+                android:src="@drawable/schwarzer_laeufer" />
 
             <ImageButton
                 android:id="@+id/btn03"
@@ -71,7 +71,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_queen" />
+                android:src="@drawable/schwarze_dame" />
 
             <ImageButton
                 android:id="@+id/btn04"
@@ -84,7 +84,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_king" />
+                android:src="@drawable/schwarzer_koenig" />
 
             <ImageButton
                 android:id="@+id/btn05"
@@ -97,7 +97,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_bishop" />
+                android:src="@drawable/schwarzer_laeufer" />
 
             <ImageButton
                 android:id="@+id/btn06"
@@ -110,7 +110,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_knight" />
+                android:src="@drawable/schwarzer_springer" />
 
             <ImageButton
                 android:id="@+id/btn07"
@@ -123,7 +123,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_rook" />
+                android:src="@drawable/schwarzer_turm" />
         </TableRow>
 
         <TableRow
@@ -141,7 +141,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_pawn" />
+                android:src="@drawable/schwarzer_bauer" />
 
             <ImageButton
                 android:id="@+id/btn11"
@@ -154,7 +154,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_pawn" />
+                android:src="@drawable/schwarzer_bauer" />
 
             <ImageButton
                 android:id="@+id/btn12"
@@ -167,7 +167,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_pawn" />
+                android:src="@drawable/schwarzer_bauer" />
 
             <ImageButton
                 android:id="@+id/btn13"
@@ -180,7 +180,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_pawn" />
+                android:src="@drawable/schwarzer_bauer" />
 
             <ImageButton
                 android:id="@+id/btn14"
@@ -193,7 +193,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_pawn" />
+                android:src="@drawable/schwarzer_bauer" />
 
             <ImageButton
                 android:id="@+id/btn15"
@@ -206,7 +206,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_pawn" />
+                android:src="@drawable/schwarzer_bauer" />
 
             <ImageButton
                 android:id="@+id/btn16"
@@ -219,7 +219,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_pawn" />
+                android:src="@drawable/schwarzer_bauer" />
 
             <ImageButton
                 android:id="@+id/btn17"
@@ -232,7 +232,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/black_pawn" />
+                android:src="@drawable/schwarzer_bauer" />
         </TableRow>
 
         <TableRow
@@ -654,7 +654,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_pawn" />
+                android:src="@drawable/weisser_bauer" />
 
             <ImageButton
                 android:id="@+id/btn61"
@@ -667,7 +667,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_pawn" />
+                android:src="@drawable/weisser_bauer" />
 
             <ImageButton
                 android:id="@+id/btn62"
@@ -680,7 +680,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_pawn" />
+                android:src="@drawable/weisser_bauer" />
 
             <ImageButton
                 android:id="@+id/btn63"
@@ -693,7 +693,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_pawn" />
+                android:src="@drawable/weisser_bauer" />
 
             <ImageButton
                 android:id="@+id/btn64"
@@ -706,7 +706,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_pawn" />
+                android:src="@drawable/weisser_bauer" />
 
             <ImageButton
                 android:id="@+id/btn65"
@@ -719,7 +719,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_pawn" />
+                android:src="@drawable/weisser_bauer" />
 
             <ImageButton
                 android:id="@+id/btn66"
@@ -732,7 +732,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_pawn" />
+                android:src="@drawable/weisser_bauer" />
 
             <ImageButton
                 android:id="@+id/btn67"
@@ -745,7 +745,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_pawn" />
+                android:src="@drawable/weisser_bauer" />
         </TableRow>
 
         <TableRow
@@ -763,7 +763,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_rook" />
+                android:src="@drawable/weisser_turm" />
 
             <ImageButton
                 android:id="@+id/btn71"
@@ -776,7 +776,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_knight" />
+                android:src="@drawable/weisser_springer" />
 
             <ImageButton
                 android:id="@+id/btn72"
@@ -789,7 +789,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_bishop" />
+                android:src="@drawable/weisser_laeufer" />
 
             <ImageButton
                 android:id="@+id/btn73"
@@ -802,7 +802,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_queen" />
+                android:src="@drawable/weisse_dame" />
 
             <ImageButton
                 android:id="@+id/btn74"
@@ -815,7 +815,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_king" />
+                android:src="@drawable/weisser_koenig" />
 
             <ImageButton
                 android:id="@+id/btn75"
@@ -828,7 +828,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_bishop" />
+                android:src="@drawable/weisser_laeufer" />
 
             <ImageButton
                 android:id="@+id/btn76"
@@ -841,7 +841,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_knight" />
+                android:src="@drawable/weisser_springer" />
 
             <ImageButton
                 android:id="@+id/btn77"
@@ -854,7 +854,7 @@
                 android:onClick="onFieldClick"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/white_rook" />
+                android:src="@drawable/weisser_turm" />
         </TableRow>
 
     </TableLayout>

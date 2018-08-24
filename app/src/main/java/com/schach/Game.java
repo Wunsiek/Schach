@@ -2,6 +2,7 @@ package com.schach;
 
 import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
@@ -312,34 +313,34 @@ public class Game extends AppCompatActivity {
             if (figuren[y][x] != null) {
                 figuren[y][x].highlightFields();
                 selectedFigure = figuren[y][x];
-            }else{
-                return;
             }
         }else{
             if (figuren[y][x] != null) {
                 if(figuren[y][x].isSchwarz() == selectedFigure.isSchwarz()){
                     figuren[y][x].highlightFields();
                     selectedFigure = figuren[y][x];
-                } else if (game[y][x].getDrawingCacheBackgroundColor() == Color.parseColor("#7DFF0000")) { //TODO Hier wird eine Figur geschlagen
+                } else if (((ColorDrawable) game[y][x].getBackground()).getColor() == Color.parseColor("#7DFF0000")) { //Figur wird geschlagen
                     // Das hier könnte man vielleicht nochmal besser machen:
                     Game.setUnclicked();
                     figuren[y][x] = selectedFigure;
+                    figuren[y][x].setMoved(true);
                     figuren[selectedFigure.getYPos()][selectedFigure.getXPos()] = null;
 
                     game[y][x].setImageDrawable(game[selectedFigure.getYPos()][selectedFigure.getXPos()].getDrawable());
-                    game[selectedFigure.getYPos()][selectedFigure.getXPos()] = null;
+                    game[selectedFigure.getYPos()][selectedFigure.getXPos()].setImageResource(android.R.color.transparent);
 
                     figuren[y][x].setYPos(y);
                     figuren[y][x].setXPos(x);
                     selectedFigure = null;
                 }
-            } else if (game[y][x].getDrawingCacheBackgroundColor() == Color.parseColor("#B4FFF200")) { //Hier wird ein Zug gemacht
+            } else if (((ColorDrawable) game[y][x].getBackground()).getColor() == Color.parseColor("#B4FFF200")) { //Zug wird gemacht
                 Game.setUnclicked();
                 figuren[y][x] = selectedFigure;
+                figuren[y][x].setMoved(true);
                 figuren[selectedFigure.getYPos()][selectedFigure.getXPos()] = null;
 
                 game[y][x].setImageDrawable(game[selectedFigure.getYPos()][selectedFigure.getXPos()].getDrawable());
-                game[selectedFigure.getYPos()][selectedFigure.getXPos()] = null;
+                game[selectedFigure.getYPos()][selectedFigure.getXPos()].setImageResource(android.R.color.transparent);
 
                 figuren[y][x].setYPos(y);
                 figuren[y][x].setXPos(x);
@@ -352,7 +353,7 @@ public class Game extends AppCompatActivity {
     public static void setUnclicked(){
         for(int i = 0; i <= 7; i++){
             for(int j = 0; j <= 7; j++){
-                game[i][j].setBackgroundResource(0);
+                game[i][j].setBackgroundColor(Color.parseColor("#00000000"));
             }
         }
     }
