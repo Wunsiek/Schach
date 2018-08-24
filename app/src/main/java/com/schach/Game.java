@@ -1,18 +1,57 @@
 package com.schach;
 
+import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
+import android.view.View;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
+import android.widget.TableLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class Game extends AppCompatActivity {
 
-    ImageButton[][] game = new ImageButton[8][8];
+    public static ImageButton[][] game = new ImageButton[8][8];
+    public static Spielfigur[][] figuren = new Spielfigur[8][8]; //figuren[y][x] immer so einsetzen
+    public static Spielfigur selectedFigure = null;
+    TableLayout table;
+
+    Spielfigur st1 = new Spielfigur("st1", true, 't', 0, 0);
+    Spielfigur ss1 = new Spielfigur("ss1", true, 's', 1, 0);
+    Spielfigur sl1 = new Spielfigur("sl1", true, 'l', 2, 0);
+    Spielfigur sd1 = new Spielfigur("sd1", true, 'd', 3, 0);
+    Spielfigur sk1 = new Spielfigur("sk1", true, 'k', 4, 0);
+    Spielfigur sl2 = new Spielfigur("sl2", true, 'l', 5, 0);
+    Spielfigur ss2 = new Spielfigur("ss2", true, 's', 6, 0);
+    Spielfigur st2 = new Spielfigur("st2", true, 't', 7, 0);
+    Spielfigur sb1 = new Spielfigur("sb1", true, 'b', 0, 1);
+    Spielfigur sb2 = new Spielfigur("sb2", true, 'b', 1, 1);
+    Spielfigur sb3 = new Spielfigur("sb3", true, 'b', 2, 1);
+    Spielfigur sb4 = new Spielfigur("sb4", true, 'b', 3, 1);
+    Spielfigur sb5 = new Spielfigur("sb5", true, 'b', 4, 1);
+    Spielfigur sb6 = new Spielfigur("sb6", true, 'b', 5, 1);
+    Spielfigur sb7 = new Spielfigur("sb7", true, 'b', 6, 1);
+    Spielfigur sb8 = new Spielfigur("sb8", true, 'b', 7, 1);
+    Spielfigur wt1 = new Spielfigur("wt1", false, 't', 0, 7);
+    Spielfigur ws1 = new Spielfigur("ws1", false, 's', 1, 7);
+    Spielfigur wl1 = new Spielfigur("wl1", false, 'l', 2, 7);
+    Spielfigur wd1 = new Spielfigur("wd1", false, 'd', 3, 7);
+    Spielfigur wk1 = new Spielfigur("wk1", false, 'k', 4, 7);
+    Spielfigur wl2 = new Spielfigur("wl2", false, 'l', 5, 7);
+    Spielfigur ws2 = new Spielfigur("ws2", false, 's', 6, 7);
+    Spielfigur wt2 = new Spielfigur("wt2", false, 't', 7, 7);
+    Spielfigur wb1 = new Spielfigur("wb1", false, 'b', 0, 6);
+    Spielfigur wb2 = new Spielfigur("wb2", false, 'b', 1, 6);
+    Spielfigur wb3 = new Spielfigur("wb3", false, 'b', 2, 6);
+    Spielfigur wb4 = new Spielfigur("wb4", false, 'b', 3, 6);
+    Spielfigur wb5 = new Spielfigur("wb5", false, 'b', 4, 6);
+    Spielfigur wb6 = new Spielfigur("wb6", false, 'b', 5, 6);
+    Spielfigur wb7 = new Spielfigur("wb7", false, 'b', 6, 6);
+    Spielfigur wb8 = new Spielfigur("wb8", false, 'b', 7, 6);
 
     @BindView(R.id.btn00)
     ImageButton btn00;
@@ -156,6 +195,8 @@ public class Game extends AppCompatActivity {
         int screenWidth = size.x;
         int screenHeight = size.y;
 
+        table = findViewById(R.id.table);
+
         game[0][0] = btn00;
         game[0][1] = btn01;
         game[0][2] = btn02;
@@ -221,12 +262,123 @@ public class Game extends AppCompatActivity {
         game[7][6] = btn76;
         game[7][7] = btn77;
 
+        figuren[0][0] = st1;
+        figuren[0][1] = ss1;
+        figuren[0][2] = sl1;
+        figuren[0][3] = sd1;
+        figuren[0][4] = sk1;
+        figuren[0][5] = sl2;
+        figuren[0][6] = ss2;
+        figuren[0][7] = st2;
+        figuren[1][0] = sb1;
+        figuren[1][1] = sb2;
+        figuren[1][2] = sb3;
+        figuren[1][3] = sb4;
+        figuren[1][4] = sb5;
+        figuren[1][5] = sb6;
+        figuren[1][6] = sb7;
+        figuren[1][7] = sb8;
+        figuren[7][0] = wt1;
+        figuren[7][1] = ws1;
+        figuren[7][2] = wl1;
+        figuren[7][3] = wd1;
+        figuren[7][4] = wk1;
+        figuren[7][5] = wl2;
+        figuren[7][6] = ws2;
+        figuren[7][7] = wt2;
+        figuren[6][0] = wb1;
+        figuren[6][1] = wb2;
+        figuren[6][2] = wb3;
+        figuren[6][3] = wb4;
+        figuren[6][4] = wb5;
+        figuren[6][5] = wb6;
+        figuren[6][6] = wb7;
+        figuren[6][7] = wb8;
+
         for(int i = 0; i <= 7; i++){
             for(int j = 0; j <= 7; j++){
-                game[i][j].getLayoutParams().width = (screenWidth - 32)/8;
-                game[i][j].getLayoutParams().height = (screenWidth - 32)/8;
+                game[i][j].getLayoutParams().width = (screenWidth - 115)/8;
+                game[i][j].getLayoutParams().height = (screenWidth - 115)/8;
             }
         }
-
+        table.getLayoutParams().height = (screenWidth);
     }
+
+
+    public void onFieldClick(View view) {
+        ImageButton btn = (ImageButton) view;
+        int y = checkChar(btn.getContentDescription().charAt(0));
+        int x = checkChar(btn.getContentDescription().charAt(1));
+        if(selectedFigure == null) {
+            if (figuren[y][x] != null) {
+                figuren[y][x].highlightFields();
+                selectedFigure = figuren[y][x];
+            }
+        }else{
+            if (figuren[y][x] != null) {
+                if(figuren[y][x].isSchwarz() == selectedFigure.isSchwarz()){
+                    figuren[y][x].highlightFields();
+                    selectedFigure = figuren[y][x];
+                } else if (((ColorDrawable) game[y][x].getBackground()).getColor() == Color.parseColor("#7DFF0000")) { //Figur wird geschlagen
+                    // Das hier könnte man vielleicht nochmal besser machen:
+                    Game.setUnclicked();
+                    figuren[y][x] = selectedFigure;
+                    figuren[y][x].setMoved(true);
+                    figuren[selectedFigure.getYPos()][selectedFigure.getXPos()] = null;
+
+                    game[y][x].setImageDrawable(game[selectedFigure.getYPos()][selectedFigure.getXPos()].getDrawable());
+                    game[selectedFigure.getYPos()][selectedFigure.getXPos()].setImageResource(android.R.color.transparent);
+
+                    figuren[y][x].setYPos(y);
+                    figuren[y][x].setXPos(x);
+                    selectedFigure = null;
+                }
+            } else if (((ColorDrawable) game[y][x].getBackground()).getColor() == Color.parseColor("#B4FFF200")) { //Zug wird gemacht
+                Game.setUnclicked();
+                figuren[y][x] = selectedFigure;
+                figuren[y][x].setMoved(true);
+                figuren[selectedFigure.getYPos()][selectedFigure.getXPos()] = null;
+
+                game[y][x].setImageDrawable(game[selectedFigure.getYPos()][selectedFigure.getXPos()].getDrawable());
+                game[selectedFigure.getYPos()][selectedFigure.getXPos()].setImageResource(android.R.color.transparent);
+
+                figuren[y][x].setYPos(y);
+                figuren[y][x].setXPos(x);
+                selectedFigure = null;
+
+            }
+        }
+    }
+
+    public static void setUnclicked(){
+        for(int i = 0; i <= 7; i++){
+            for(int j = 0; j <= 7; j++){
+                game[i][j].setBackgroundColor(Color.parseColor("#00000000"));
+            }
+        }
+    }
+
+    public int checkChar(char number){
+        switch (number){
+            case '0':
+                return 0;
+            case '1':
+                return 1;
+            case '2':
+                return 2;
+            case '3':
+                return 3;
+            case '4':
+                return 4;
+            case '5':
+                return 5;
+            case '6':
+                return 6;
+            case '7':
+                return 7;
+            default:
+                return 8;
+        }
+    }
+
 }
